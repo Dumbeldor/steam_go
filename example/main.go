@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	"github.com/labstack/gommon/log"
 	"github.com/solovev/steam_go"
 )
 
@@ -26,5 +27,5 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/login", loginHandler)
-	http.ListenAndServe(":8081", nil)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
